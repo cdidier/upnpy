@@ -9,7 +9,12 @@ with open(path.join(current_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name='UPnPy',
     version=__version__,
-    packages=['tests', 'upnpy', 'upnpy.soap', 'upnpy.ssdp', 'upnpy.upnp'],
+    packages=['upnpy', 'upnpy.soap', 'upnpy.ssdp', 'upnpy.upnp', 'upnpy.tools'],
+    entry_points = {
+        'console_scripts': [
+            'upnpy-igd = upnpy.tools.igd:main',
+        ],
+    },
     keywords=['upnp', 'upnpy'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
